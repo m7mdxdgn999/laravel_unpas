@@ -18,5 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function () {
-    return view('about');
+
+    $nama='Muhammad';
+    return view('about',['nama'=>$nama]);
 });
