@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Student;
 
 class MahasiswaController extends Controller
 {
@@ -15,9 +16,10 @@ class MahasiswaController extends Controller
     public function index()
     {
 
-        $mahasiswa = DB::table('student')->get();
+       // $mahasiswa = DB::table('student')->get();
         // untuk menampilkan isi dari data :dump($mahasiswa);
         //menampilkan semua data
+        $mahasiswa= Student::all();
         return view('mahasiswa.index',['mahasiswa'=>$mahasiswa]);
     }
 
