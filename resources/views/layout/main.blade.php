@@ -25,13 +25,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        <a class="nav-link active" aria-current="page" href="{{url('/')}}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/about">About</a>
+                        <a class="nav-link" href="{{url('about')}}">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/mahasiswa">Data Mahasiswa</a>
+                        <a class="nav-link" href="{{url('mahasiswa')}}">Data Mahasiswa</a>
                     </li>
                     
                 </ul>
