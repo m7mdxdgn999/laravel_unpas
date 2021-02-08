@@ -11,6 +11,8 @@
 
             <table class="table">
                 <thead>
+
+
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nama</th>
@@ -21,16 +23,17 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($mahasiswa as $mhs)
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Muhammad</td>
-                        <td>11170930000084</td>
-                        <td>halilintar1314@gmail.com</td>
-                        <td>Sistem Informasi</td>
+                        <th scope="row">{{$loop ->iteration}}</th>
+                        <td>{{$mhs->nama}}</td>
+                        <td>{{$mhs->nim}}</td>
+                        <td>{{$mhs->jurusan}}</td>
+                        <td>{{$mhs->email}}</td>
                         <td><a href="" class="badge bg-primary"> edit</a></td>
                         <td><a href="" class="badge bg-danger"> hapus</a></td>
                     </tr>
-                    
+                    @endforeach
                 </tbody>
             </table>
 
