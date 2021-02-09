@@ -15,7 +15,7 @@ class StudentsController extends Controller
     public function index()
     {
         //
-        $students=Student::all ();
+        $students = Student::all();
         return view('students.index', compact('students'));
     }
 
@@ -44,27 +44,27 @@ class StudentsController extends Controller
         ]);
         //simpan data ke data base ada 3 cara
         //cara 1
-       // $student= new Student;
-       // $student->nama=$request->nama;
-       // $student->nim=$request->nim;
-       // $student->jurusan=$request->jurusan;
+        // $student= new Student;
+        // $student->nama=$request->nama;
+        // $student->nim=$request->nim;
+        // $student->jurusan=$request->jurusan;
         //$student->email=$request->email;
 
-       // $student->save();
+        // $student->save();
 
-      
-       //cara 2 yg aman: 
-      Student::create ([
-        'nama'=>$request ->nama,
-        'nim'=>$request ->nim,
-        'jurusan'=>$request ->jurusan,
-        'email'=>$request ->email
-       ]);
 
-      //cara 3 satu baris :
-      //Student::create([$request-> all()]);
+        //cara 2 yg aman: 
+        Student::create([
+            'nama' => $request->nama,
+            'nim' => $request->nim,
+            'jurusan' => $request->jurusan,
+            'email' => $request->email
+        ]);
 
-       return redirect('/students') ->with('status', 'Data Behasil ditambahkan');
+        //cara 3 satu baris :
+        //Student::create([$request-> all()]);
+
+        return redirect('/students')->with('status', 'Data Behasil ditambahkan');
     }
 
     /**
@@ -76,9 +76,8 @@ class StudentsController extends Controller
     public function show(Student $student)
     {
         //menangkap data 
-        return view('students.show',compact('student'));
-
-    } 
+        return view('students.show', compact('student'));
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -89,6 +88,7 @@ class StudentsController extends Controller
     public function edit(Student $student)
     {
         //
+        return view('students.edit', compact('student'));
     }
 
     /**
@@ -100,7 +100,21 @@ class StudentsController extends Controller
      */
     public function update(Request $request, Student $student)
     {
+
+        $request->validate([
+            'nama' => 'required',
+            'nim' => 'required | size:9'
+        ]);
         //
+        Student::where('id', $student->id)
+
+            ->update([
+                'nama' => $request->nama,
+                'nim' => $request->nim,
+                'jurusan' => $request->jurusan,
+                'email' => $request->email
+            ]);
+            return redirect('/students') ->with('status', 'Data Behasil diubah');
     }
 
     /**
@@ -113,6 +127,6 @@ class StudentsController extends Controller
     {
         //
         Student::destroy($student->id);
-        return redirect('/students') ->with('status', 'Data Behasil dihapuskan');
+        return redirect('/students')->with('status', 'Data Behasil dihapuskan');
     }
 }

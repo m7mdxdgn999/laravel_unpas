@@ -16,12 +16,11 @@
                     <p class="card-text">{{$student->jurusan}}</p>
                     <p class="card-text">{{$student->email}}</p>
 
-                    <button type="submit" class="btn btn-primary">Edit</button>
+                    <a href="{{$student->id}}/edit" type="submit" class="btn btn-primary">Edit</a>
                     <form action="{{$student->id}}" method="post" class="d-inline">
-                    @method ('delete')
-                    @csrf
-                    
-                    <button type="submit" class="btn btn-danger">Delet</button>
+                        @method ('delete')
+                        @csrf
+                        <button type="submit" class="btn btn-danger">Delet</button>
                     </form>
                 </div>
             </div>
