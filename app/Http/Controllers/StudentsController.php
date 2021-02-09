@@ -40,7 +40,7 @@ class StudentsController extends Controller
     {
         $request->validate([
             'nama' => 'required',
-            'nim' => 'required | size:9',
+            'nim' => 'required | size:9'
         ]);
         //simpan data ke data base ada 3 cara
         //cara 1
@@ -112,5 +112,7 @@ class StudentsController extends Controller
     public function destroy(Student $student)
     {
         //
+        Student::destroy($student->id);
+        return redirect('/students') ->with('status', 'Data Behasil dihapuskan');
     }
 }
