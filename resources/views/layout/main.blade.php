@@ -33,6 +33,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('mahasiswa')}}">Data Mahasiswa</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('students')}}">Students</a>
+                    </li>
                     
                 </ul>
             </div>
