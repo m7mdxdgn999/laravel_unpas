@@ -38,18 +38,33 @@ class StudentsController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nama' => 'required',
+            'nim' => 'required | size:9',
+        ]);
         //simpan data ke data base ada 3 cara
         //cara 1
-        $student= new Student;
-        $student->nama=$request->nama;
-        $student->nim=$request->nim;
-        $student->jurusan=$request->jurusan;
-        $student->email=$request->email;
+       // $student= new Student;
+       // $student->nama=$request->nama;
+       // $student->nim=$request->nim;
+       // $student->jurusan=$request->jurusan;
+        //$student->email=$request->email;
 
-        $student->save();
+       // $student->save();
 
-        return redirect('/students');
+      
+       //cara 2 yg aman: 
+      Student::create ([
+        'nama'=>$request ->nama,
+        'nim'=>$request ->nim,
+        'jurusan'=>$request ->jurusan,
+        'email'=>$request ->email
+       ]);
 
+      //cara 3 satu baris :
+      //Student::create([$request-> all()]);
+
+       return redirect('/students') ->with('status', 'Data Behasil ditambahkan');
     }
 
     /**

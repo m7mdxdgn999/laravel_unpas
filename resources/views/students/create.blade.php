@@ -13,19 +13,19 @@
              @csrf
                 <div class="mb-3">
                     <label for="nama" class="form-label">Nama</label>
-                    <input type="text" class="form-control" id="nama" placeholder="Masukan Nama" name="nama">
+                    <input type="text" class="form-control" id="nama" placeholder="Masukan Nama" name="nama" >
                 </div>
                 <div class="mb-3">
                     <label for="nim" class="form-label">NIM</label>
-                    <input type="text" class="form-control" id="nim" placeholder="Masukan NIM" name="nim">
+                    <input type="text" class="form-control" id="nim" placeholder="Masukan NIM" name="nim" >
                 </div>
                 <div class="mb-3">
-                    <label for="jurusan" class="form-label">jurusan</label>
-                    <input type="text" class="form-control" id="jurusan" placeholder="Masukan jurusan" name="jurusan">
+                    <label for="jurusan" class="form-label">jurusan</label> 
+                    <input type="text" class="form-control" id="jurusan" placeholder="Masukan jurusan" name="jurusan" >
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">email</label>
-                    <input type="text" class="form-control" id="email" placeholder="Masukan email" name="email">
+                    <input type="text" class="form-control" id="email" placeholder="Masukan email" name="email" >
                 </div>
                 <button type="submit" class="btn btn-primary">Tambah Data</button>
             </form>
